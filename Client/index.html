@@ -7,9 +7,121 @@
 	<title>ABC</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<style>
+		body{
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+	</style>
 </head>
-Minh Nhi
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>AirlineReservation</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- Nav tabs -->
+  				<ul class="nav nav-tabs" role="tablist">
+    				<li role="presentation" class="active"><a href="#khuhoi" aria-controls="khuhoi" role="tab" data-toggle="tab">Khứ hồi</a></li>
+    				<li role="presentation"><a href="#motchieu" aria-controls="motchieu" role="tab" data-toggle="tab">Một chiều</a></li>
+  				</ul>
+  				<!-- Tab panes -->
+  				<div class="tab-content">
+   					<div role="tabpanel" class="tab-pane active" id="khuhoi">
+   						<br>
+   						<form class="form-inline">
+   							<div class="row">
+   								<div class="col-md-6">
+									<div class="form-group">
+										<label for="sel1">Đi: </label>
+										<select class="form-control" id="sel1" style="width: 200px;">
+										    <option>Hồ Chí Minh</option>
+										    <option>Đà Nẵng</option>
+										    <option>Cần Thơ</option>
+										    <option>Hà Nội</option>
+										</select>
+  									</div>	
+   								</div>
+   								<div class="col-md-6">
+   									<div class="form-group">
+    									<label for="sel2">Đến: </label>
+										<select class="form-control" id="sel2" style="width: 200px;">
+										    <option>Hồ Chí Minh</option>
+										    <option>Đà Nẵng</option>
+										    <option>Cần Thơ</option>
+										    <option>Hà Nội</option>
+										</select>
+  									</div>
+   								</div>
+   							</div>
+  							<br>
+							<div class="row">
+   								<div class="col-md-6">
+									<div class="form-group">
+    									<label for="ngaydi">Ngày đi: </label>
+    									<input type="date" class="form-control" id="ngaydi" placeholder="DD/MM/YYYY">
+  									</div>
+   								</div>
+   								<div class="col-md-6">
+   									<div class="form-group">
+    									<label for="ngayve" >Ngày về: </label>
+    									<input type="date" class="form-control" id="ngayve" placeholder="DD/MM/YYYY">
+  									</div>
+   								</div>
+   							</div>
+  							<br>
+  							<div class="row">
+  								<div class="col-md-12">
+  									<div class="form-group">
+    									<label for="songuoi" >Số người: </label>
+    									<input type="text" class="form-control" id="songuoi">
+  									</div>
+  								</div>
+  							</div>
+  							<br>
+  							<div class="row">
+  								<div class="col-md-2 col-md-offset-10">
+  									<button type="submit" class="btn btn-default">Tìm kiếm</button>
+  								</div>
+  							</div>
+						</form>
+   					</div>
+
+    				<div role="tabpanel" class="tab-pane" id="motchieu">
+    					<br>
+   						<form class="form-inline">
+  							<div class="form-group">
+    							<label for="sanbaydi">Từ: </label>
+    							<input type="text" class="form-control" id="sanbaydi" placeholder="Sân bay đi">
+  							</div>
+  							<div class="form-group">
+    							<label for="sanbayden">Đến: </label>
+    							<input type="text" class="form-control" id="sanbayden" placeholder="Sân bay đến">
+  							</div>
+  							<br><br>
+  							<div class="form-group">
+    							<label for="ngaydi">Ngày đi: </label>
+    							<input type="date" class="form-control" id="ngaydi" placeholder="DD/MM/YYYY">
+  							</div>
+  							<br><br>
+  							<div class="form-group">
+    							<label for="songuoi" >Số người: </label>
+    							<input type="text" class="form-control" id="songuoi">
+  							</div>
+  							<br><br>
+  							<button type="submit" class="btn btn-default">Tìm kiếm</button>
+						</form>
+    				</div>
+ 				 </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/javascript.js"></script>
 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
+</body>
 </html>
