@@ -1,0 +1,97 @@
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>AirlineReservation</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<!-- Nav tabs -->
+  				<ul class="nav nav-tabs" role="tablist">
+    				<li role="presentation" ><a href="#khuhoi" aria-controls="khuhoi" role="tab" data-toggle="tab">Khứ hồi</a></li>
+    				<li role="presentation" class="active"><a href="#motchieu" aria-controls="motchieu" role="tab" data-toggle="tab">Một chiều</a></li>
+  				</ul>
+  				<!-- Tab panes -->
+  				<div class="tab-content">
+   					<div role="tabpanel" class="tab-pane" id="khuhoi">
+   						<br>
+   						<form class="form-inline">
+   							<div class="row">
+   								<div class="col-md-6">
+									<div class="form-group">
+										<label for="noidi">Đi: </label>										
+										<select class="form-control" id="noidi" style="width: 200px;" ng-options="state.name for state in states" ng-model="selectedState" ng-change="change(this.selectedState)">								
+										</select>
+  									</div>	
+   								</div>
+   								<div class="col-md-6">
+   									<div class="form-group">
+    									<label for="noiden">Đến: </label>
+										<select class="form-control" id="noidi" style="width: 200px;" ng-options="state1.name for state1 in states1" ng-model="selectedState1">								
+										</select>
+  									</div>
+   								</div>
+   							</div>
+  							<br>
+							<div class="row">
+   								<div class="col-md-6">
+									<div class="form-group">
+    									<label for="ngaydi">Ngày đi: </label>
+    									<input type="date" class="form-control" id="ngaydi" placeholder="DD/MM/YYYY">
+  									</div>
+   								</div>
+   								<div class="col-md-6">
+   									<div class="form-group">
+    									<label for="ngayve" >Ngày về: </label>
+    									<input type="date" class="form-control" id="ngayve" placeholder="DD/MM/YYYY">
+  									</div>
+   								</div>
+   							</div>
+  							<br>
+  							<div class="row">
+  								<div class="col-md-12">
+  									<div class="form-group">
+    									<label for="songuoi" >Số người: </label>
+    									<input type="text" class="form-control" id="songuoi">
+  									</div>
+  								</div>
+  							</div>
+  							<br>
+  							<div class="row">
+  								<div class="col-md-2 col-md-offset-10">
+  									<button type="submit" class="btn btn-default">Tìm kiếm</button>
+  								</div>
+  							</div>
+						</form>
+   					</div>
+
+    				<div role="tabpanel" class="tab-pane active" id="motchieu">
+    					<br>
+   						<form class="form-inline">
+  							<div class="form-group">
+    							<label for="sanbaydi">Từ: </label>
+    							<input type="text" class="form-control" id="minhnhi" placeholder="Sân bay đi">
+  							</div>
+  							<div class="form-group">
+    							<label for="sanbayden">Đến: </label>
+    							<input type="text" class="form-control" id="sanbayden" placeholder="Sân bay đến">
+  							</div>
+  							<br><br>
+  							<div class="form-group">
+    							<label for="ngaydi">Ngày đi: </label>
+    							<input type="date" class="form-control" id="ngaydi" placeholder="DD/MM/YYYY">
+  							</div>
+  							<br><br>
+  							<div class="form-group">
+    							<label for="songuoi" >Số người: </label>
+    							<input type="text" class="form-control" id="songuoi">
+  							</div>
+  							<br><br>
+  							<button type="submit" class="btn btn-default">Tìm kiếm</button>
+						</form>
+    				</div>
+ 				 </div>
+			</div>
+		</div>
+	</div>	
