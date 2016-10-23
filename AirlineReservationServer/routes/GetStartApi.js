@@ -2,8 +2,8 @@
  * Created by 19872406 on 24/10/2016.
  */
 var express   =    require("express");
+var router = express.Router();
 var mysql     =    require('mysql');
-var app       =    express();
 
 var pool      =    mysql.createPool({
     connectionLimit : 100, //important
@@ -38,8 +38,8 @@ function handle_database(req,res) {
     });
 }
 
-app.get("/flights/starts",function(req,res){-
+router.get("/",function(req,res){-
     handle_database(req,res);
 });
 
-app.listen(3001);
+module.exports = router;

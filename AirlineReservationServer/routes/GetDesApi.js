@@ -2,9 +2,8 @@
  * Created by 19872406 on 24/10/2016.
  */
 var express   =    require("express");
+var router = express.Router();
 var mysql     =    require('mysql');
-var app       =    express();
-var url       = require("url");
 
 var pool      =    mysql.createPool({
     connectionLimit : 100, //important
@@ -17,7 +16,6 @@ var pool      =    mysql.createPool({
 
 function handle_database(req,res) {
 
-    var start = req.toString().trim();
     pool.getConnection(function(err,connection){
         if (err) {
             res.json({"code" : 100, "status" : "Error in connection database"});
@@ -26,7 +24,7 @@ function handle_database(req,res) {
 
         console.log('connected as id ' + connection.threadId);
 
-        connection.query("select Noiden from flights where Noidi = ?",[start],function(err,rows){
+        connection.query("select Noiden from flights where Noidi = ?",[req.params.Noidi],function(err,rows){
             connection.release();
             if(!err) {
                 res.json(rows);
@@ -40,9 +38,8 @@ function handle_database(req,res) {
     });
 }
 
-app.get("/flights/destinations/:Noidi",function(req,res){
-    var des = req.params.Noidi;
-    handle_database(des,res);
+router.get("/:Noidi",function(req,res){
+    handle_database(req,res);
 });
 
-app.listen(3001);
+module.exports = router;
