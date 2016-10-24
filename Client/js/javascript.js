@@ -17,6 +17,12 @@ app.config(function($routeProvider){
 	.when('/resultmotchieu',{
 		templateUrl: 'result_motchieu.html'
 	})
+	.when('/comfirm', {
+		templateUrl: 'comfirm.html'
+	})
+	.when('/success', {
+		templateUrl: 'success.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
@@ -42,19 +48,33 @@ app.controller('Abc', function($scope, $http, $location) {
 	$scope.khuhoitimkiem = function(){
 		$scope.ngaydi = $('#ngaydi').val();
 		$scope.ngayve = $('#ngayve').val();
+		$scope.songuoi = $('#songuoi').val();
 		var noidi = $('#noidi').find(":selected").text();
 		var noiden = $('#noiden').find(":selected").text();
-		$http.get('http://localhost:3333/api/resultkhuhoi?noidi=' + noidi.toString() + '&noiden=' + noiden.toString())
+		$http.get('http://localhost:3000/api/resultkhuhoi?noidi=' + noidi.toString() + '&noiden=' + noiden.toString())
 		.then(function(response){
 			console.log(response.data);
 			$scope.resultkhuhoidi = response.data;
 		});
-		$http.get('http://localhost:3333/api/resultkhuhoi?noidi=' + noiden.toString() + '&noiden=' + noidi.toString())
+		$http.get('http://localhost:3000/api/resultkhuhoi?noidi=' + noiden.toString() + '&noiden=' + noidi.toString())
 		.then(function(response){
 			console.log(response.data);
 			$scope.resultkhuhoive = response.data;
 		});
 		window.location.hash = '#/resultkhuhoi';
+	};
+
+	$scope.motchieutimkiem = function(){
+		$scope.ngaydimotchieu = $('#ngaydimotchieu').val();
+		$scope.songuoi = $('#songuoi').val();
+		var noidi = $('#noidi').find(":selected").text();
+		var noiden = $('#noiden').find(":selected").text();
+		$http.get('http://localhost:3000/api/resultkhuhoi?noidi=' + noidi.toString() + '&noiden=' + noiden.toString())
+		.then(function(response){
+			console.log(response.data);
+			$scope.resultmotchieu = response.data;
+		});
+		window.location.hash = '#/resultmotchieu';
 	};
 
 	$scope.checkboxchange = function(){
@@ -75,7 +95,7 @@ app.controller('Abc', function($scope, $http, $location) {
 		for (var i = 0; i < selected2.length; i++){
 			tongtien += parseInt(table2.rows[parseInt(selected2[i]) + 1].cells[5].innerHTML, 10);
 		}
-		$scope.tongtien = tongtien;
+		$scope.tongtien = tongtien * $('#songuoi').val();
 	}
 	$scope.continue = function(){
 		var tongtien = 0;
@@ -83,6 +103,7 @@ app.controller('Abc', function($scope, $http, $location) {
 		var selected2 = [];
 		var table1 = document.getElementById('khuhoidi');
 		var table2 = document.getElementById('khuhoive');
+		$scope.songuoi = $('#songuoi').val();
 		$('#khuhoidi input:checked').each(function() {
     		selected1.push($(this).attr('name'));
 		});
@@ -95,7 +116,7 @@ app.controller('Abc', function($scope, $http, $location) {
 		for (var i = 0; i < selected2.length; i++){
 			tongtien += parseInt(table2.rows[parseInt(selected2[i]) + 1].cells[5].innerHTML, 10);
 		}
-		$scope.tongtien = tongtien;
+		$scope.tongtien = tongtien * $('#songuoi').val();
 		$scope.luutru = [];
 		for (var i = 0; i < selected1.length; i++){
 			var Obj = {
@@ -117,7 +138,20 @@ app.controller('Abc', function($scope, $http, $location) {
 			};
 			$scope.luutru.push(Obj);
 		}
-		console.log($scope.luutru[0].giaban);
-		//khoi tao ma dat cho - trang thai 0
+		//khoi tao ma dat cho - trang thai 0 MaDatCho|ThoiGianDat|TongTien|TrangThai
+		//tra ve ma dat cho
+		window.location.hash = '/comfirm';
+	};
+
+	$scope.them = function(){
+		var ten = $('#ten').val();
+		var hochieu = $('#hochieu').val();
+		//cap nhat vao bang MaDatCho|Ten|HoChieu
+	}
+
+	$scope.hoantat = function(){
+		//them du lieu vao bang MaDatCho|Ngay|Hang|Mucgia
+		//cap nhat lai trang thai 1 MaDatCho|ThoiGianDat|TongTien|TrangThai
+		window.location.hash = '/success';
 	};
 });
