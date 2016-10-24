@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var getstart = require('./routes/GetStartApi');
 var getdes = require('./routes/GetDesApi');
+var newbooking = require('./routes/NewBookingApi');
+var flightdetail = require('./routes/GetFlightDetailApi');
+var updatebooking = require('./routes/UpdateBookingsApi');
 
 var app = express();
 
@@ -25,9 +27,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/flights/starts', getstart);
 app.use('/flights/destinations', getdes);
+app.use('/bookings/new',newbooking);
+app.use('/flightdetail', flightdetail);
+app.use('/bookings/update', updatebooking);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
