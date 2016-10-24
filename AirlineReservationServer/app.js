@@ -13,6 +13,8 @@ var flightdetail = require('./routes/GetFlightDetailApi');
 var updatebooking = require('./routes/UpdateBookingsApi');
 var getallflights = require('./routes/GetAllFlightApi');
 var newflight = require('./routes/NewFlightApi');
+var getpassengers = require('./routes/GetPassengerListApi');
+var newpassenger = require('./routes/NewPassengerApi');
 
 var app = express();
 
@@ -36,6 +38,8 @@ app.use('/flightdetail', flightdetail);
 app.use('/bookings/update', updatebooking);
 app.use('/flights', getallflights);
 app.use('/flights/new',newflight);
+app.use('/passengers', getpassengers);
+app.use('/passengers/new', newpassenger);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
