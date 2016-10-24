@@ -24,7 +24,7 @@ app.config(function($routeProvider){
 
 app.controller('Abc', function($scope, $http, $location) {
 
-	$http.get('http://localhost:3333/api/sanbaydi')
+	$http.get('http://localhost:3000/flights/starts')
 	.then(function(response){
 		console.log(response.data);
 		$scope.states = response.data;
@@ -32,7 +32,7 @@ app.controller('Abc', function($scope, $http, $location) {
 
 	$scope.change = function(){
 		var noidi = $('#noidi').find(":selected").text();
-		$http.get('http://localhost:3333/api/sanbayden/' + noidi.toString())
+		$http.get('http://localhost:3000/flights/destinations/' + noidi.toString())
 		.then(function(response){
 			console.log(response.data);
 			$scope.states1 = response.data;
