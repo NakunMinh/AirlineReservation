@@ -11,6 +11,7 @@ var getdes = require('./routes/GetDesApi');
 var newbooking = require('./routes/NewBookingApi');
 var flightdetail = require('./routes/GetFlightDetailApi');
 var updatebooking = require('./routes/UpdateBookingsApi');
+var getallflights = require('./routes/GetAllFlightApi');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/flights/destinations', getdes);
 app.use('/bookings/new',newbooking);
 app.use('/flightdetail', flightdetail);
 app.use('/bookings/update', updatebooking);
+app.use('/flights', getallflights);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
