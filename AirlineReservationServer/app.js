@@ -15,6 +15,7 @@ var getallflights = require('./routes/GetAllFlightApi');
 var newflight = require('./routes/NewFlightApi');
 var getpassengers = require('./routes/GetPassengerListApi');
 var newpassenger = require('./routes/NewPassengerApi');
+var getsomeflight = require('./routes/GetSomeFlightApi');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use('/flights', getallflights);
 app.use('/flights/new',newflight);
 app.use('/passengers', getpassengers);
 app.use('/passengers/new', newpassenger);
+app.use('/flights',getsomeflight);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
