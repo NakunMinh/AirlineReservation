@@ -10,7 +10,7 @@
         <div class="row">
             <label>Danh sách chuyến bay đã đặt</label>
         </div>
-        <table class="table">
+        <table class="table" id="tbcomfirm">
             <thead>
                 <tr>
                     <td>Giờ</td>
@@ -30,10 +30,15 @@
         </table>
         <div class="row">
             <label for="madatcho">Mã đặt chỗ: </label>
-            <input type="text" name="madatcho" value="{{madatcho}}" id="madatcho" disabled="true">
+            <input type="text" name="madatcho" value="{{madatcho[0].Ma}}" id="madatcho" disabled="true">
         </div>
         <div class="row">
-            <label>Tổng tiền: {{tongtien}}</label>
+            <label for="thoigiandat">Thời gian đặt: </label>
+            <input type="text" name="thoigiandat" value="{{thoigiandat}}" id="thoigiandat" disabled="true"> 
+        </div>
+        <div class="row">
+            <label for="tongtien">Tổng tiền: </label>
+            <input type="text" name="tongtien" value="{{tongtien}}" id="tongtien" disabled="true"> 
         </div>
         <div class="row">
             <label>Cập nhật thông tin hành khách</label>
